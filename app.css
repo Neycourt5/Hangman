@@ -1,0 +1,43 @@
+.hangman-cont {
+    text-align: center;
+}
+
+body{
+    font-family: "Arial"
+}
+
+#word{
+    margin-top: 50px;
+}
+h1{
+    font-size: 4em;
+}
+.keyboard{
+    margin-top: 75px;
+    font-size: 0;
+}
+
+.alphabetkeys{
+   
+}
+.keyboardkey{
+    width: 100px;
+    height: 100px;
+}
+#change {
+    margin-top: 50px;
+}
+
+.wrong {
+    color: red;
+    align-items: top;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.lives {
+    color: red;
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: right;
+}
+
