@@ -6,21 +6,18 @@ const disp = document.querySelector("#word");
 const keyboardkey = document.querySelectorAll(".keyboardkey")
 const wrong = document.querySelector(".wrong");
 const lives = document.querySelector(".lives");
-let livesnum = 6;
+lives.style.color = "green";
+let livesnum = 15;
 lives.textContent = livesnum;
 let word = [];
 let hiddenword = [];
 let wronglet = [];
 
 change.addEventListener("click", (e) => {
-    word = [];
-    hiddenword = [];
-    wronglet = [];
-    disp.style.color = "black";
-    wrong.textContent = "";
-    livesnum = 6;
-    lives.textContent = livesnum;
-
+    resetGame();
+    for (let i = 0; i < keyboardkey.length; i++) {
+        keyboardkey[i].classList.remove("pressed")
+    }
     let num = Math.floor(Math.random() * allWords.length);
     let letters = allWords[num].split("");
     for (i = 0; i < letters.length; i++) {
@@ -30,17 +27,20 @@ change.addEventListener("click", (e) => {
         hiddenword[i] = word[i];
         if (word[i] === " ") {
             hiddenword.push("&nbsp;");
+            hiddenword.push("&nbsp;");
         }
         if (word[i].match(/[a-z]/i)) {
-            hiddenword[i] = ("_ ")
+            hiddenword[i] = (" _ ")
         }
     }
     disp.textContent = hiddenword.join("");
+
 })
 
 for (let i = 0; i < keyboardkey.length; i++) {
     keyboardkey[i].addEventListener("click", (e) => {
         checkforletter(e.target.textContent);
+        keyboardkey[i].classList.add("pressed");
     })
 }
 
@@ -49,17 +49,28 @@ const checkforletter = (letter) => {
         if (word[i].toLowerCase() === letter.toLowerCase()) {
             hiddenword[i] = letter.toLowerCase();
             if (word[i] === word[i].toUpperCase()) {
-                hiddenword[i] = letter.toUpperCase();
+                hiddenword[i] = ` ${letter.toUpperCase()} `;
             }
-            disp.textContent = hiddenword.join("");
+            disp.textContent = hiddenword.join(" ");
         }
     }
     if (!word.join("").includes(letter.toLowerCase()) && !word.join("").includes(letter.toUpperCase())) {
         if (!wronglet.join("").includes(letter)) {
             wronglet.push(letter);
-            wrong.append(letter);
+            //wrong.append(`${letter} `);
             livesnum--;
             lives.textContent = livesnum;
+
+            if (livesnum >= 7) {
+                lives.style.color = "green";
+            }
+            if (livesnum >= 4 && livesnum < 7) {
+                lives.style.color = "orange";
+            }
+            if (livesnum < 4) {
+                lives.style.color = "red";
+            }
+
         }
     }
     if (hiddenword.join("") === word.join("")) {
@@ -67,6 +78,15 @@ const checkforletter = (letter) => {
     }
 }
 
-function isLetter(str) {
-    return str.length === 1 && str.match(/[a-z]/i);
+const resetGame = () => {
+    word = [];
+    hiddenword = [];
+    wronglet = [];
+    disp.style.color = "black";
+    wrong.textContent = "";
+    livesnum = 15;
+    lives.textContent = livesnum;
+    lives.style.color = "green";
 }
+
+

@@ -12,9 +12,12 @@
 <body>
 
     <div class="hangman-cont">
-        <h1 id="word">Hangman</h1>
+        <div>
+            <h1 id="word">Hangman</h1>
+        </div>
+
         <div class="keyboard">
-            <span class="wrong">Test</span><span class="lives">6</span>
+            <span class="wrong"></span><span class="lives">6</span>
             <div class="alphabetkeys">
                 <button class="keyboardkey">Q</button>
                 <button class="keyboardkey">W</button>
@@ -46,9 +49,11 @@
                 <button class="keyboardkey">B</button>
                 <button class="keyboardkey">N</button>
                 <button class="keyboardkey">M</button>
+                <button id="change" class="">Reset</button>
             </div>
+
         </div>
-        <button id="change">Change word</button>
+
     </div>
     <script src="g1allwords.js"></script>
 </body>
