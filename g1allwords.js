@@ -5,6 +5,9 @@ const change = document.querySelector("#change")
 const disp = document.querySelector("#word");
 const keyboardkey = document.querySelectorAll(".keyboardkey")
 const wrong = document.querySelector(".wrong");
+const lives = document.querySelector(".lives");
+let livesnum = 6;
+lives.textContent = livesnum;
 let word = [];
 let hiddenword = [];
 let wronglet = [];
@@ -15,7 +18,8 @@ change.addEventListener("click", (e) => {
     wronglet = [];
     disp.style.color = "black";
     wrong.textContent = "";
-
+    livesnum = 6;
+    lives.textContent = livesnum;
 
     let num = Math.floor(Math.random() * allWords.length);
     let letters = allWords[num].split("");
@@ -32,7 +36,6 @@ change.addEventListener("click", (e) => {
         }
     }
     disp.textContent = hiddenword.join("");
-    alert(word.join(""))
 })
 
 for (let i = 0; i < keyboardkey.length; i++) {
@@ -55,6 +58,8 @@ const checkforletter = (letter) => {
         if (!wronglet.join("").includes(letter)) {
             wronglet.push(letter);
             wrong.append(letter);
+            livesnum--;
+            lives.textContent = livesnum;
         }
     }
     if (hiddenword.join("") === word.join("")) {
