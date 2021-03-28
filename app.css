@@ -2,37 +2,50 @@
     text-align: center;
 }
 
-body{
-    font-family: "Arial"  
+html, 
+body, 
+#background { 
+  width: 100vw;
+  min-height: 100vh;
+  margin:0;
+  padding:0;
+  font-family: "Arial";
 }
 
-#word{
-    margin-top: 50px;
+.hangman-cont{
+    margin-top: 100px;
+    margin-bottom: 0px;
 }
-h1{
+#word{  
+    margin: 0;
+    font-size: 125px;  
     font-family: "Arial";
-    font-size: 4em;
 }
 .keyboard{
-    margin-top: 50px;
+    margin-top: 100px;
     font-size: 0;
+    margin-bottom:0px;
 }
 
 .keyboardkey{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 10%;
     font-weight: bolder;
-    background-color:ivory;
+    background-color: ivory;
+    font-size: 25px;
+    font-family: "Arial";
 }
 
 #change{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 10%;
     font-weight: bolder;
     background-color:ivory;
+    font-size: 25px;
 }
+
 .wrong {
     font-family: arial,sans-serif;
     color: red;
@@ -46,17 +59,20 @@ h1{
     font-weight: bolder;
     text-align: right;
     margin-left: 500px;
+    font-family: "arial";
 }
 
 .pressed {
     background-color: #a9a9a9;
     opacity: .3;
     text-decoration: none;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
 }
 
 button:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: white;
 }
+

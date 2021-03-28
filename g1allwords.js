@@ -6,6 +6,7 @@ const disp = document.querySelector("#word");
 const keyboardkey = document.querySelectorAll(".keyboardkey")
 const wrong = document.querySelector(".wrong");
 const lives = document.querySelector(".lives");
+const custom = document.querySelector("#custom");
 lives.style.color = "green";
 let livesnum = 15;
 lives.textContent = livesnum;
@@ -25,16 +26,15 @@ change.addEventListener("click", (e) => {
     }
     for (i = 0; i < word.length; i++) {
         hiddenword[i] = word[i];
-        if (word[i] === " ") {
-            hiddenword.push("&nbsp;");
-            hiddenword.push("&nbsp;");
-        }
         if (word[i].match(/[a-z]/i)) {
             hiddenword[i] = (" _ ")
         }
+        if (hiddenword[i] === " ") {
+            hiddenword[i] += "‎ "
+            hiddenword[i] += "‎ "
+        }
     }
     disp.textContent = hiddenword.join("");
-
 })
 
 for (let i = 0; i < keyboardkey.length; i++) {
@@ -45,6 +45,9 @@ for (let i = 0; i < keyboardkey.length; i++) {
 }
 
 const checkforletter = (letter) => {
+    if (disp.style.color === "green") {
+        checkforletter.removeEventListener("click");
+    }
     for (i = 0; i < word.length; i++) {
         if (word[i].toLowerCase() === letter.toLowerCase()) {
             hiddenword[i] = letter.toLowerCase();
@@ -73,9 +76,7 @@ const checkforletter = (letter) => {
 
         }
     }
-    if (hiddenword.join("") === word.join("")) {
-        disp.style.color = "green";
-    }
+    if (!hiddenword.includes(" _ ")) { disp.style.color = "green"; }
 }
 
 const resetGame = () => {
@@ -87,6 +88,18 @@ const resetGame = () => {
     livesnum = 15;
     lives.textContent = livesnum;
     lives.style.color = "green";
+    disp.textContent = "";
 }
 
 
+custom.addEventListener("click", (e) => {
+    let newWords = prompt("Enter your words separated by commas.").split(",");
+    if (newWords.length > 1) {
+        while (allWords.length > 0) {
+            allWords.pop();
+        }
+        for (i = 0; i < newWords.length; i++) {
+            allWords.push(newWords[i]);
+        }
+    }
+})
