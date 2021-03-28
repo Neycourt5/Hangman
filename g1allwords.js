@@ -61,9 +61,10 @@ const checkforletter = (letter) => {
         if (!wronglet.join("").includes(letter)) {
             wronglet.push(letter);
             //wrong.append(`${letter} `);
-            livesnum--;
-            lives.textContent = livesnum;
-
+            if (disp.style.color !== "green") {
+                livesnum--;
+                lives.textContent = livesnum;
+            }
             if (livesnum >= 7) {
                 lives.style.color = "green";
             }
@@ -93,7 +94,7 @@ const resetGame = () => {
 
 
 custom.addEventListener("click", (e) => {
-    let newWords = prompt("Enter your words separated by commas.").split(",");
+    let newWords = prompt("Enter your words separated by commas.").split(",")
     if (newWords.length > 1) {
         while (allWords.length > 0) {
             allWords.pop();

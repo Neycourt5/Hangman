@@ -68,11 +68,16 @@ body,
     text-decoration: none;
     width: 120px;
     height: 120px;
+    color: red;
 }
 
-button:hover {
+.keyboardkey:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     background-color: white;
 }
-
+.pressed:hover{
+    transform: none;
+    box-shadow: nonel;
+    background-color: #a9a9a9;
+}
