@@ -17,9 +17,6 @@ let wronglet = [];
 
 change.addEventListener("click", (e) => {
     resetGame();
-    for (let i = 0; i < keyboardkey.length; i++) {
-        keyboardkey[i].classList.remove("pressed")
-    }
     let num = Math.floor(Math.random() * allWords.length);
     let letters = allWords[num].split("");
     for (i = 0; i < letters.length; i++) {
@@ -81,6 +78,9 @@ const checkforletter = (letter) => {
 }
 
 const resetGame = () => {
+    for (let i = 0; i < keyboardkey.length; i++) {
+        keyboardkey[i].classList.remove("pressed")
+    }
     word = [];
     hiddenword = [];
     wronglet = [];
