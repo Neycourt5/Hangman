@@ -81,3 +81,41 @@ body,
     box-shadow: nonel;
     background-color: #a9a9a9;
 }
+
+.grades {
+    font-size: 20px;
+    margin-top: 50px;
+}
+input[type="radio"]{
+    margin: 0 200px 0 200px;
+  }
+
+  .radiogroup {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .radiogroup input[type="radio"] {
+    opacity: 1;
+    z-index: 100;
+  }
+  .radiogroup input[type="radio"]:checked+label,
+  .checked+label {
+    background: yellow;
+  }
+
+  .radiogroup label {
+    display: block;
+    padding: 5px;
+    border: 1px solid #CCC;
+    cursor: pointer;
+    z-index: 90;
+    background-color: ivory;
+  }
+  .radiogroup label:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+
+ 
