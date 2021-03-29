@@ -74,7 +74,10 @@ const checkforletter = (letter) => {
             }
         }
     }
-    if (!hiddenword.includes(" _ ")) { disp.style.color = "green"; }
+    if (!hiddenword.includes(" _ ")) {
+        disp.textContent = word.join("");
+        disp.style.color = "green";
+    }
 }
 
 const resetGame = () => {
